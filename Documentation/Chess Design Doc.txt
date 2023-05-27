@@ -1,0 +1,27 @@
+Chess Design Doc
+Outline:
+    1. Actors
+    2. Design
+ 
+Actors:
+    - GameBoard_Blueprint
+        - Components
+        - Graphs
+        - Functions
+            - State
+                - GetMapLocationAtCoordinates
+                    - Inputs
+                        - Integer TargetX 
+                        - Integer TargetY 
+                    - Outputs
+                        - GridLocation_Blueprint GridLocation 
+                    - Description
+                        - A function which takes a given X and Y coordinate (TargetX and TargetY), 
+                        searches the GameBoard_Blueprint's MapLocations array, and returns the GridLocation_Blueprint (GridLocation) at those coordinates 
+        -	Macros
+        -   Variables
+        -	Event Dispatchers
+
+ 
+The Game Board
+-	The game board is contained in an actor called GameBoard_Blueprint 
