@@ -20,8 +20,35 @@ Actors:
                         searches the GameBoard_Blueprint's MapLocations array, and returns the GridLocation_Blueprint (GridLocation) at those coordinates 
         -	Macros
         -   Variables
+            - Containers
+                - MapLocations
+                    - Type
+                        - GridLocation_Blueprint array
+                    - Description
+                        - An array containing the complete set of GridLocation_Blueprints used to draw the level map     
+            - State
+                - SelectedLocation
+                    - Type
+                        - GridLocation_Blueprint
+                    - Description
+                        - The currently selected GridLocation_Blueprint
+                - SelectedLocationIndex
+                    - Type
+                        - Integer
+                    - Description
+                        - Index of the SelectedLocation 
+                - AreSelectingLocation
+                    - Type
+                        - Boolean
+                    - Description 
+                        - Tells whether we're currently moving the grid selection 
+                - AreSelectingAction
+                    - Type
+                        - Boolean
+                    - Description
+                        - Tells whether we're currently choosing a piece action 
         -	Event Dispatchers
-
+    - GridLocation_Blueprint
  
 The Game Board
 -	The game board is contained in an actor called GameBoard_Blueprint 
