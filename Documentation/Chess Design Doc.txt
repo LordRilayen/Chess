@@ -1,54 +1,154 @@
 Chess Design Doc
 Outline:
-    1. Actors
+    1. Content
     2. Design
- 
-Actors:
-    - GameBoard_Blueprint
-        - Components
-        - Graphs
-        - Functions
-            - State
-                - GetMapLocationAtCoordinates
-                    - Inputs
-                        - Integer TargetX 
-                        - Integer TargetY 
-                    - Outputs
-                        - GridLocation_Blueprint GridLocation 
-                    - Description
-                        - A function which takes a given X and Y coordinate (TargetX and TargetY), 
-                        searches the GameBoard_Blueprint's MapLocations array, and returns the GridLocation_Blueprint (GridLocation) at those coordinates 
-        -	Macros
-        -   Variables
-            - Containers
-                - MapLocations
+
+1) Content 
+    Actors:
+        - BP_GameBoard
+            - Components
+            - Graphs
+            - Functions
+                - State
+                    - GetMapLocationAtCoordinates
+                        - Inputs
+                            - Integer TargetX 
+                            - Integer TargetY 
+                        - Outputs
+                            - GridLocation_Blueprint GridLocation 
+                        - Description
+                            - A function which takes a given X and Y coordinate (TargetX and TargetY), 
+                            searches the BP_GameBoard's MapLocations array, and returns the GridLocation_Blueprint (GridLocation) at those coordinates 
+            - Macros
+            - Variables
+                - Containers
+                    - MapLocations
+                        - Type
+                            - GridLocation_Blueprint array
+                        - Description
+                            - An array containing the complete set of GridLocation_Blueprints used to draw the level map     
+                - State
+                    - SelectedLocation
+                        - Type
+                            - GridLocation_Blueprint
+                        - Description
+                            - The currently selected GridLocation_Blueprint
+                    - SelectedLocationIndex
+                        - Type
+                            - Integer
+                        - Description
+                            - Index of the SelectedLocation 
+                    - AreSelectingLocation
+                        - Type
+                            - Boolean
+                        - Description 
+                            - Tells whether we're currently moving the grid selection 
+                    - AreSelectingAction
+                        - Type
+                            - Boolean
+                        - Description
+                            - Tells whether we're currently choosing a piece action 
+            - Event Dispatchers
+        - BP_GridLocation
+            - Components
+                - Surface
                     - Type
-                        - GridLocation_Blueprint array
+                        - Static Mesh
                     - Description
-                        - An array containing the complete set of GridLocation_Blueprints used to draw the level map     
-            - State
-                - SelectedLocation
+                        - A cube static mesh which forms the space of the GridLocation
+                - SelectionCheck
                     - Type
-                        - GridLocation_Blueprint
+                        - Box Collision
                     - Description
-                        - The currently selected GridLocation_Blueprint
-                - SelectedLocationIndex
-                    - Type
-                        - Integer
-                    - Description
-                        - Index of the SelectedLocation 
-                - AreSelectingLocation
-                    - Type
-                        - Boolean
-                    - Description 
-                        - Tells whether we're currently moving the grid selection 
-                - AreSelectingAction
-                    - Type
-                        - Boolean
-                    - Description
-                        - Tells whether we're currently choosing a piece action 
-        -	Event Dispatchers
-    - GridLocation_Blueprint
- 
-The Game Board
--	The game board is contained in an actor called GameBoard_Blueprint 
+                        - A collider used to click on the location from above; left over from TicTacToe and not currently used
+            - Graphs
+            - Functions
+                - Utility
+                    - F_SelectLocation
+                        - Inputs
+                        - Outputs
+                        - Description
+                            - Toggles selection of a GridLocation
+                    - F_SetCoordinates
+                        - Inputs
+                            - Integer X
+                            - Integer Y 
+                        - Outputs
+                        - Description
+                            - Places the GridLocation in the world based on the coordinates given
+                    - F_SetSelectionMaterial
+                        - Inputs
+                        - Outputs
+                        - Description
+                            - Determines whether to use the Default Material or the Selection Glow
+            - Macros
+            - Variables
+                - Components
+                    - SelectionCheck
+                    - Surface
+                - Dimensions
+                    - Height
+                        - Type
+                            - Integer
+                        -Description
+                            - Determines the height (Z) of the Surface component
+                    - Width
+                        - Type
+                            - Integer
+                        - Description
+                            - Determines the width (X) of the Surface component
+                    - Depth
+                        - Type 
+                            - Integer
+                        - Description
+                            - Determines the depth (Y) of the Surface component
+                - Coordinates
+                    - X 
+                        - Type
+                            - Integer
+                        - Description
+                            - The X-coordinate of this Surface on the map
+                    - Y  
+                        - Type 
+                            - Integer
+                        - Description
+                            - The Y-coordinate of this Surface on the map
+                - State 
+                    - IsSelected
+                        - Type
+                            - Boolean
+                        - Description
+                            - Marks whether this distinct GridLocation has been selected
+                    - DefaultMaterial
+                        - Type
+                            - Material
+                        - Description
+                            - The default material of the GridLocation
+                    - CurrentPiece
+                        - Type
+                            - Checker_Blueprint
+                        - Description
+                            - The checker piece currently attached to the location
+                - Rules
+                    - IsBlack
+                        - Type
+                            - Boolean
+                        - Description
+                            - Tells whether the square is black and legal to move on
+            - Event Dispatchers
+    Characters
+        - BP_PlayerStart
+        - BP_PlayerPawn
+    Maps 
+        - ChessGame
+    Materials
+        - M_Black_Piece
+        - M_Black_Square
+        - M_Selection_Glow
+    Widgets
+        - PieceMover_Widget
+
+2) Design
+    The Game Board
+    - The game board is contained in an actor called BP_GameBoard 
+    - BP_GameBoard is not rendered, but instead serves as a collection of BP_GridLocations which represents the board as a whole
