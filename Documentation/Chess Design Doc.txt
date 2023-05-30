@@ -134,7 +134,7 @@ Outline:
                         - Type
                             - Boolean
                         - Description
-                            - Tells whether the square is black and legal to move on
+                            - Tells whether the square is black
             - Event Dispatchers
     Characters
         - BP_PlayerStart
@@ -152,3 +152,10 @@ Outline:
     The Game Board
     - The game board is contained in an actor called BP_GameBoard 
     - BP_GameBoard is not rendered, but instead serves as a collection of BP_GridLocations which represents the board as a whole
+
+    Squares on the Board
+    - Each square is a BP_GridLocation
+    - Each square knows whether it is black or white, and has a DefaultMaterial storing the appropriate material. The active material on the Surface component 
+        is determined by the material in this variable, and whether or not the square IsSelected
+        - IsSelected is equal to True, then set Surface material to M_Selection_Glow
+        - IsSelected is equal to False, then set Surface material to DefaultMaterial
