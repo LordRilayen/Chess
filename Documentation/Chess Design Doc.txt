@@ -5,6 +5,44 @@ Outline:
 
 1) Content 
     Actors:
+        - BP_ChessPawn
+            - Components
+                - Head
+                    - Collar
+                        - Body
+                            - Pedestal
+                                - Base
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+                - Components
+                    - Base
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The base of the pawn structure
+                    - Pedestal
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The pedestal of the pawn structure
+                    - Body
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The body of the pawn structure
+                    - Collar
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The collar of the pawn structure
+                    - Head
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The head of the pawn structure
+            - Event Dispatchers
         - BP_GameBoard
             - Components
             - Graphs
