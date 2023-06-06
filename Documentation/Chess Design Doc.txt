@@ -5,6 +5,30 @@ Outline:
 
 1) Content 
     Actors:
+        - BP_BishopPiece
+            - Components
+                - Base
+                    - Pedestal
+                        - Body1
+                            - Body2
+                                - Collar1
+                                    - Collar2
+                                        - Collar3
+                                            - Head
+                                                - Hat
+                                                    - HatTip                            
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+            - Event Dispatchers
+        - BP_ChessPiece
+            - Components
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+            - Event Dispatchers
         - BP_GameBoard
             - Components
             - Graphs
@@ -135,6 +159,120 @@ Outline:
                             - Boolean
                         - Description
                             - Tells whether the square is black
+            - Event Dispatchers
+        - BP_KingPiece
+            - Components
+                - Base1
+                    - Base2
+                        - Pedestal
+                            - Body1
+                                - Body2
+                                    - Collar1
+                                        - Collar2
+                                            - Collar3
+                                                - Hat1
+                                                    - HatPedestal
+                                                        - HatCross1
+                                                        - HatCross2
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+            - Event Dispatchers
+        - BP_KnightPiece
+            - Components
+                - Base
+                    - Pedestal
+                        - Neck1
+                            - Neck2
+                                - Neck3
+                                    - Neck4
+                                        - Head
+                                            - Nose1
+                                                - Nose2
+                                                    - Ear1
+                                                    - Ear2
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+            - Event Dispatchers
+        - BP_PawnPiece
+            - Components
+                 - Base
+                    - Pedestal
+                        - Body
+                            - Collar
+                                - Head
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+                - Components
+                    - Base
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The base of the pawn structure
+                    - Pedestal
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The pedestal of the pawn structure
+                    - Body
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The body of the pawn structure
+                    - Collar
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The collar of the pawn structure
+                    - Head
+                        - Type
+                            - StaticMeshComponent
+                        - Description
+                            - The head of the pawn structure
+            - Event Dispatchers
+        - BP_QueenPiece
+            - Components
+                - Base1
+                    - Base2
+                        - Pedestal
+                            - Body1
+                                - Body2
+                                    - Collar1
+                                        - Collar2
+                                            - Collar3
+                                                - Hat1
+                                                    - Hat2
+                                                        - HatTip
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
+            - Event Dispatchers
+        - BP_RookPiece
+            - Components
+                - Base
+                    - Pedestal
+                        - Tower
+                            - Cap1
+                                - Cap2
+                                    - Cap3
+                                        - Merlon1
+                                        - Merlon2
+                                        - Merlon3
+                                        - Merlon4
+                                        - Merlon5
+                                        - Merlon6
+                                        - Merlon7
+                                        - Merlon8
+            - Graphs
+            - Functions
+            - Macros
+            - Variables
             - Event Dispatchers
     Characters
         - BP_PlayerStart
