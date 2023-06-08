@@ -27,6 +27,26 @@ Outline:
                 - Widget
             - Graphs
             - Functions
+                - State
+                    - F_ResetPieceMoverWidget
+                        - Inputs
+                        - Outputs
+                        - Description 
+                            - Resets all MovementCounters back to 0 and returns the widget to it starting point
+                    - F_SetCoordinates
+                        - Inputs
+                            - Integer X 
+                            - Integer Y 
+                        - Outputs
+                        - Description
+                            - Takes an X and Y coordinate and moves the BP_ChessPiece to the cooresponding BP_GridLocation
+                - Utility 
+                    - F_PromotePawnINCOMPLETE
+                    - F_UpdatePiece
+                        - Inputs
+                        - Outputs
+                        - Description
+                            - Takes all State variables and uses them to update the actual state of the BP_ChessPiece in the world
             - Macros
             - Variables
                 - Components
@@ -244,9 +264,9 @@ Outline:
                             - The default material of the GridLocation
                     - CurrentPiece
                         - Type
-                            - Checker_Blueprint
+                            - BP_ChessPiece
                         - Description
-                            - The checker piece currently attached to the location
+                            - The BP_ChessPiece currently attached to the BP_GridLocation
                 - Rules
                     - IsBlack
                         - Type
