@@ -276,7 +276,7 @@ Outline:
             - Event Dispatchers
         - BP_KingPiece
             - Components
-                - Base1
+                - Base
                     - Base2
                         - Pedestal
                             - Body1
@@ -351,7 +351,7 @@ Outline:
             - Event Dispatchers
         - BP_QueenPiece
             - Components
-                - Base1
+                - Base
                     - Base2
                         - Pedestal
                             - Body1
