@@ -389,6 +389,8 @@ Outline:
             - Variables
             - Event Dispatchers
     Characters
+        - BP_ChessPlayer
+            
         - BP_PlayerStart
         - BP_PlayerPawn
     Maps 
