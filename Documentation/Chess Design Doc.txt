@@ -24,10 +24,124 @@ Outline:
             - Event Dispatchers
         - BP_ChessPiece
             - Components
+                - Widget
             - Graphs
             - Functions
+                - State
+                    - F_ResetPieceMoverWidget
+                        - Inputs
+                        - Outputs
+                        - Description 
+                            - Resets all MovementCounters back to 0 and returns the widget to it starting point
+                    - F_SetCoordinates
+                        - Inputs
+                            - Integer X 
+                            - Integer Y 
+                        - Outputs
+                        - Description
+                            - Takes an X and Y coordinate and moves the BP_ChessPiece to the cooresponding BP_GridLocation
+                - Utility 
+                    - F_PromotePawnINCOMPLETE
+                    - F_UpdatePiece
+                        - Inputs
+                        - Outputs
+                        - Description
+                            - Takes all State variables and uses them to update the actual state of the BP_ChessPiece in the world
             - Macros
             - Variables
+                - Components
+                    - Widget
+                - Components: Runtime
+                    - PieceMoverWidget
+                        - Type
+                            - WBP_PieceMover
+                        - Description
+                            - The movable indicator of where the player wants to move the current piece
+                - Coordinates
+                    - X 
+                        - Type
+                            - Integer
+                        - Description
+                            - The X-coordinate of this BP_ChessPiece on the map
+                    - Y 
+                        - Type
+                            - Integer
+                        - Description
+                            - The Y-coordinate of this BP_ChessPiece on the map
+                - State
+                    - IsSelected
+                        - Type
+                            - Boolean
+                        - Description  
+                            - Marks whether this distinct GridLocation has been selected
+                    - CurrentLocation
+                        - Type
+                            - BP_GridLocation
+                        - Description
+                            - The BP_GridLocation where the BP_ChessPiece currently resides
+                    - IsPieceMoverWidgetCreated
+                        - Type
+                            - Boolean
+                        - Description
+                            - Keeps track of whether the mover widget is created
+                        - Notes
+                            - TRY NOT TO USE THIS AT FIRST; ISVALID MIGHT BE BETTER
+                    - MovementCounter_Right
+                        - Type
+                            - Integer
+                        - Description
+                            - How far the PieceMoverWidget has moved from the BP_ChessPiece to the right
+                    - MovementCounter_Left
+                        - Type
+                            - Integer
+                        - Description
+                            - How far the PieceMoverWidget has moved from the BP_ChessPiece to the left
+                    - MovementCounter_Up
+                        - Type
+                            - Integer
+                        - Description
+                            - How far the PieceMoverWidget has moved from the BP_ChessPiece up
+                    - MovementCounter_Down
+                        - Type
+                            - Integer
+                        - Description
+                            - How far the PieceMoverWidget has moved from the BP_ChessPiece down
+                    - IsBlack
+                        - Type
+                            - Boolean
+                        - Description
+                            - Tells whether a BP_ChessPiece is white or black
+                - Rules  
+                    - MovementLimit_Right
+                        - Type
+                            - Integer
+                        - Description
+                            - The number of spaces a BP_ChessPiece is allowed to move to the right
+                    - MovementLimit_Left
+                        - Type
+                            - Integer
+                        - Description
+                            - The number of spaces a BP_ChessPiece is allowed to move to the left
+                    - MovementLimit_Up
+                        - Type
+                            - Integer
+                        - Description
+                            - The number of spaces a BP_ChessPiece is allowed to move to the up
+                    - MovementLimit_Down
+                        - Type
+                            - Integer
+                        - Description
+                            - The number of spaces a BP_ChessPiece is allowed to move to the down
+                    - WhitePawnPromotionLocations
+                        - Type
+                            - []BP_GridLocation
+                        - Description
+                            - Array of BP_GridLocation where a white BP_PawnPiece can be promoted
+                    - BlackPawnPromotionLocations
+                        - Type
+                            - []BP_GridLocation
+                        - Description
+                            - Array of BP_GridLocation where a black BP_PawnPiece can be promoted 
             - Event Dispatchers
         - BP_GameBoard
             - Components
@@ -150,9 +264,9 @@ Outline:
                             - The default material of the GridLocation
                     - CurrentPiece
                         - Type
-                            - Checker_Blueprint
+                            - BP_ChessPiece
                         - Description
-                            - The checker piece currently attached to the location
+                            - The BP_ChessPiece currently attached to the BP_GridLocation
                 - Rules
                     - IsBlack
                         - Type
@@ -162,7 +276,7 @@ Outline:
             - Event Dispatchers
         - BP_KingPiece
             - Components
-                - Base1
+                - Base
                     - Base2
                         - Pedestal
                             - Body1
@@ -237,7 +351,7 @@ Outline:
             - Event Dispatchers
         - BP_QueenPiece
             - Components
-                - Base1
+                - Base
                     - Base2
                         - Pedestal
                             - Body1
@@ -275,6 +389,8 @@ Outline:
             - Variables
             - Event Dispatchers
     Characters
+        - BP_ChessPlayer
+            
         - BP_PlayerStart
         - BP_PlayerPawn
     Maps 
