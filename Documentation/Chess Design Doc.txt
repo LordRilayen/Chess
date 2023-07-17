@@ -348,6 +348,12 @@ Outline:
                             - StaticMeshComponent
                         - Description
                             - The head of the pawn structure
+                - Utility
+                    - AllComponents
+                        - Type
+                            - []StaticMeshComponent
+                        - Description
+                            - Array containing all meshes comprising the piece
             - Event Dispatchers
         - BP_QueenPiece
             - Components
