@@ -354,6 +354,12 @@ Outline:
                             - []StaticMeshComponent
                         - Description
                             - Array containing all meshes comprising the piece
+                - Rules
+                    - IsFirstMove
+                        - Type
+                            - Boolean
+                        - Description
+                            - Tells whether this is the first time the pawn has moved
             - Event Dispatchers
         - BP_QueenPiece
             - Components
@@ -419,3 +425,5 @@ Outline:
         is determined by the material in this variable, and whether or not the square IsSelected
         - IsSelected is equal to True, then set Surface material to M_Selection_Glow
         - IsSelected is equal to False, then set Surface material to DefaultMaterial
+
+CURRENT TASK: Figure out how to represent a Pawn's unique piece-taking mechanic
