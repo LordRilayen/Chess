@@ -426,4 +426,4 @@ Outline:
         - IsSelected is equal to True, then set Surface material to M_Selection_Glow
         - IsSelected is equal to False, then set Surface material to DefaultMaterial
 
-CURRENT TASK: Figure out how to represent a Pawn's unique piece-taking mechanic
+CURRENT TASK: Figure out how to represent a Pawn's unique piece-taking mechanic--currently moving MovePiece logic into the ChessPiece rather than the ChessPlayer so that it can be specialized for different pieces
